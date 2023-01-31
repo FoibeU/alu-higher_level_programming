@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-str = "Holberton Schools"
+str = "Holberton School"
 
 print(3 * str)
 
