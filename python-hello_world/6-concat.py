@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-str1 = "Holberto"
+str1 = "Holberton"
 
 str2 = "School"
 
