@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import random
-number = random.randint(-100, 100)
+number = random.randint(-10, 10)
 if number < 0:
        print('{} is negative'.format(number))
 elif number > 0:
