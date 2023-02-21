@@ -5,6 +5,6 @@ def print_list_integer(my_list=[]):
 
 
 if __name__ == '__main__':
-    my_list = [2, 4, 6, 8]
+    my_list = [2, 4, 6, 8, 10]
     print_list_integer(my_list)
 
