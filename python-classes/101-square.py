@@ -1,56 +1,87 @@
 #!/usr/bin/python3
 
-"""Defines a square."""
-
 
 class Square:
-    """Representation of Square class"""
+    """Square class."""
 
-    def __init__(self, size=0):
-        """Initialize a square
+    def __init__(self, size=0, position=(0, 0)):
+        """__init__ method that sets the size and position of square.
         Args:
-            size (int): size of the square
+            size (int): size of Square
+            position (tuple): poisition of Square
         """
-        self.__size = size
+        self.size = size
+        self.position = position
+
+    def area(self):
+        """Gets the area of the Square.
+        Returns:
+            Area of squre
+        """
+        return self.__size * self.__size
 
     @property
     def size(self):
-        """Get/set size of the square."""
+        """gets size of square."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        if not isinstance(value, int) and not isinstance(value, float):
-            raise TypeError("size must be a number")
-        elif value < 0:
+        """size setter  method that sets the size of square.
+        Args:
+            value (int): size of Square
+        Raises:
+            TypeError: If `value` is not an integer.
+            ValueError: If `value` is less than 0.
+        """
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        if value < 0:
             raise ValueError("size must be >= 0")
+        self.__size = value
+
+    @property
+    def position(self):
+        """gets position of square."""
+        return self.__position
+
+    @position.setter
+    def position(self, value):
+        """position setter method that sets position of Square.
+        Args:
+            value (tuple): tuple of two positive integer coordinates
+        Raises:
+            TypeError: If `value` is not a tuple of two positive integers
+        """
+        if not isinstance(value, tuple):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif not isinstance(value[0], int) or not isinstance(value[1], int):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif (value[0] < 0 or value[1] < 0):
+            raise TypeError("position must be a tuple of 2 positive integers")
         else:
-            self.__size = value
+            self.__position = value
 
-    def area(self):
-        """Finds area of the square."""
-        return self.__size * self.__size
+    def __str__(self):
+        """Prints a # representation of square based on size."""
+        sqr_str = ''
+        if self.__size == 0:
+            return sqr_str
+        else:
+            for i in range(self.__position[1]):
+                sqr_str += '\n'
+            for j in range(self.__size - 1):
+                sqr_str += ' ' * self.__position[0] + '#' * self.__size + '\n'
+            sqr_str += ' ' * self.__position[0] + '#' * self.__size
+        return sqr_str
 
-    def __eq__(self, other):
-        """Defines the == comparison opeartor of two squares"""
-        return self.area() == other.area()
+if __name__ == '__main__':
+    my_square = Square(5, (0, 0))
+    print(my_square)
 
-    def __ne__(self, other):
-        """Defines the != comparison opeartor of two squares"""
-        return self.area() != other.area()
+    print("--")
 
-    def __gt__(self, other):
-        """Defines the > comparison opeartor of two squares"""
-        return self.area() > other.area()
-
-    def __ge__(self, other):
-        """Defines the >= comparison opeartor of two squares"""
-        return self.area() >= other.area()
-
-    def __lt__(self, other):
-        """Defines the < comparison opeartor of two squares"""
-        return self.area() < other.area()
-
-    def __le__(self, other):
-        """Defines the <= comparison opeartor of two squares"""
-        return self.area() <= other.area()
+    my_square = Square(5, (4, 1))
+    print(my_square)
