@@ -1,111 +1,66 @@
 #!/usr/bin/python3
+""" empty class Rectangle that defines a rectangle
+"""
 
 
 class Rectangle:
-    """Rectangle class."""
-
+    """ class rectangle"""
     def __init__(self, width=0, height=0):
-        """__init__ method.
-        Args:
-            width (int): integer width
-            height (int): integer height
-        """
+        """ Instantiation with optional width and height"""
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """width: returns width
-        Args:
-            width (int): integer width
-        Returns:
-            rectangle width
-        Raises:
-            TypeError: if width is not an integer
-            ValueError: if width is less than 0
+        """ width
         """
         return self.__width
 
     @property
     def height(self):
-        """height: returns height
-        Args:
-            height (int): integer height
-        Returns:
-            rectangle height
-        Raises:
-            TypeError: if height is not an integer
-            ValueError: if height is less than 0
+        """ height
         """
         return self.__height
 
     @width.setter
-    def width(self, width):
-        if not isinstance(width, int):
+    def width(self, value):
+        """ width setter
+        """
+        if type(value) is not int:
             raise TypeError("width must be an integer")
-        if width < 0:
+        if value < 0:
             raise ValueError("width must be >= 0")
-        self.__width = width
+        self.__width = value
 
     @height.setter
-    def height(self, height):
-        if not isinstance(height, int):
-            raise TypeError("height must be an integer")
-        if height < 0:
-            raise ValueError("height must be >= 0")
-        self.__height = height
-
-    def __str__(self):
-        """String representation (#) of rectangle.
-        Returns:
-            string rep of rectangle
+    def height(self, value):
+        """ height setter
         """
-        string = ''
-        if self.width == 0 or self.height == 0:
-            return string
-        for r in range(self.height - 1):
-            for c in range(self.width):
-                string += '#'
-            string += '\n'
-        string += '#' * self.width
-        return string
-
-    def __repr__(self):
-        """String representation of Rectangle object"""
-        return 'Rectangle({:d}, {:d})'.format(self.width, self.height)
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
+        self.__height = value
 
     def area(self):
-        """Returns the area of the rectangle."""
-        return self.width * self.height
+        """ returns rectangle area"""
+        return self.__width * self.__height
 
     def perimeter(self):
-        """Returns the perimeter of the rectangle."""
-        if self.width == 0 or self.height == 0:
+        """ returns rectangle perimiter"""
+        if self.__width is 0 or self.__height is 0:
             return 0
-        return self.width * 2 + self.height * 2
+        return self.__width * 2 + self.__height * 2
 
+    def __str__(self):
+        """ return the rectangle with the character #
+        """
+        if self.__width is 0 or self.__height is 0:
+            return ""
+        return ("\n".join(["".join(["#" for i in range(self.__width)])
+                for j in range(self.__height)]))
 
-if __name__ == '__main__':
-    my_rectangle = Rectangle(2, 4)
-    print(str(my_rectangle))
-    print("--")
-    print(my_rectangle)
-    print("--")
-    print(repr(my_rectangle))
-    print("--")
-    print(hex(id(my_rectangle)))
-    print("--")
-
-    # create new instance based on representation
-    new_rectangle = eval(repr(my_rectangle))
-    print(str(new_rectangle))
-    print("--")
-    print(new_rectangle)
-    print("--")
-    print(repr(new_rectangle))
-    print("--")
-    print(hex(id(new_rectangle)))
-    print("--")
-
-    print(new_rectangle is my_rectangle)
-    print(type(new_rectangle) is type(my_rectangle))
+    def __repr__(self):
+        """ return a string representation of the rectangle
+        """
+        return "Rectangle({}, {})".format(self.__width, self.__height)
