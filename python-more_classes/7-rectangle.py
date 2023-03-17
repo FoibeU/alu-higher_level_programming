@@ -6,6 +6,7 @@
 class Rectangle:
     """ class rectangle"""
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """ Instantiation with optional width and height"""
@@ -21,7 +22,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """height
+        """ height
         """
         return self.__height
 
@@ -60,8 +61,8 @@ class Rectangle:
         """
         if self.__width is 0 or self.__height is 0:
             return ""
-        return ("\n".join(["".join(["#" for i in range(self.__width)])
-                for j in range(self.__height)]))
+        return ("\n".join(["".join([str(self.print_symbol)
+                for i in range(self.__width)]) for j in range(self.__height)]))
 
     def __repr__(self):
         """ return a string representation of the rectangle
