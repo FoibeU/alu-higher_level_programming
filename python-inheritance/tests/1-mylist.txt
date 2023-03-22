@@ -111,4 +111,4 @@ List with no attribute
 >>> my_list.print_sorted()
 Traceback (most recent call last):
 ...
-AttributeError: 'list' object has no attribute 'print_sorted'
+AttributeError: 'list' object has n attribute 'print_sorted'
