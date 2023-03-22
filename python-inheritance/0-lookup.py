@@ -1,22 +1,15 @@
 #!/usr/bin/python3
+
+"""Function that returns the list of
+    available attributes and methods of an object:
+"""
+
+
 def lookup(obj):
-    """returns the list of available attributes and methods of an object
+    """List available attributes and methods of an object
     Args:
-        obj (object): object
+        obj (object): object to list its attributes and methods
+    Returns:
+        a list object
     """
-    return dir(obj)
-
-
-if __name__ == '__main__':
-    class MyClass1(object):
-        pass
-
-    class MyClass2(object):
-        my_attr1 = 3
-
-        def my_meth(self):
-            pass
-
-    print(lookup(MyClass1))
-    print(lookup(MyClass2))
-    print(lookup(int))
+    return (dir(obj))
