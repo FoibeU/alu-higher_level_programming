@@ -1,0 +1,208 @@
+The BaseGeometry module
+==========================
+"""
+    The following are tests for 1-my_list.py
+"""
+-------------------------------
+Import module
+-------------------------------
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+----------------------------
+Test Cases
+-----------------------------
+common cases
+-----------------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+
+
+>>> try:
+...    bg.integer_validator("name", "John")
+... except Exception as e:
+...    print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] name must be an integer
+
+>>> try:
+...    bg.integer_validator("age", 0)
+... except Exception as e:
+...    print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] age must be greater than 0
+
+
+>>> try:
+...    bg.integer_validator("distance", -4)
+... except Exception as e:
+...    print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] distance must be greater than 0
+
+----------------------------
+Undefined objects
+-----------------------------
+>>> bg = BaseGeometry()
+>>> bg2.integer_validator("count", 2)
+Traceback (most recent call last):
+...
+NameError: name 'bg2' is not defined
+
+
+----------------------------
+passing value to class
+-----------------------------
+>>> bg = BaseGeometry(value)
+Traceback (most recent call last):
+...
+NameError: name 'value' is not defined
+
+----------------------------
+testing float
+-----------------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("kilometer", 45.76)
+Traceback (most recent call last):
+...
+TypeError: kilometer must be an integer
+
+----------------------------
+passsing no arguments
+-----------------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator()
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+----------------------------
+passing one argument
+-----------------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("days")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+----------------------------
+passing wrong value as arguments
+-----------------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator(2, "name")
+Traceback (most recent call last):
+...
+TypeError: 2 must be an integer
+
+----------------------------
+passing None
+-----------------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator(None, 1)
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", None)
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+----------------------------
+infinity number
+-----------------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", float(inf))
+Traceback (most recent call last):
+...
+NameError: name 'inf' is not defined
+
+----------------------------
+passing other data types
+-----------------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", [3, 5, 7])
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", (3, 5, 7))
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", {3, 5, 7})
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", {"key": "value"})
+Traceback (most recent call last):
+...
+TypeError: age must be an integer
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+...
+TypeError: name must be an integer
+
+----------------------------
+Passing boolean value
+-----------------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("name", True)
+
+----------------------------
+Passing more than two arguements
+-----------------------------
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", 24, 25)
+Traceback (most recent call last):
+...
+TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+----------------------------
+Testing Area method on objects
+-----------------------------
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
+
+
+>>> bg = BaseGeometry()
+>>> bg.area(2)
+Traceback (most recent call last):
+...
+TypeError: area() takes 1 positional argument but 2 were given
+
+
+>>> bg = BaseGeometry()
+>>> bg.area(2, 2)
+Traceback (most recent call last):
+...
+TypeError: area() takes 1 positional argument but 3 were given
+
+
+>>> bg = BaseGeometry()
+>>> bg.area(2, 2)
+Traceback (most recent call last):
+...
+TypeError: area() takes 1 positional argument but 3 were given
+
+
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", 23)
+>>> bg.area("str", 2)
+Traceback (most recent call last):
+...
+TypeError: area() takes 1 positional argument but 3 were given
+
+
+>>> bg = BaseGeometry()
+>>> bg.area()
+Traceback (most recent call last):
+...
+Exception: area() is not implemented
