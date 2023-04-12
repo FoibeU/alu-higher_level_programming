@@ -2,7 +2,7 @@
 How to Use 5-text_indentation.py
 ================================
 
-This module defines a text-indentation function ``text_indentation(text)``.
+This module define text-indentation function ``text_indentation(text)``.
 
 Usage
 =====
