@@ -2,3 +2,4 @@
 function argvalues (cha, val) {
   console.log(cha + ' ' + 'is' + ' ' + val);
 }
+argvalues(); 
