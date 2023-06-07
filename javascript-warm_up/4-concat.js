@@ -1,5 +1,2 @@
 #!/usr/bin/node
-function argvalues (cha, val) {
-  console.log(cha + ' ' + 'is' + ' ' + val);
-}
-argvalues(); 
+console.log(`${process.argv[2]} is ${process.argv[3]}`);
