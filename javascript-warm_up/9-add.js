@@ -1,10 +1,10 @@
 #!/usr/bin/node
 function add (a, b) {
   if (isNaN(a) || isNaN(b)) {
-    return 'Invalid numbers';
+    return 'NaN';
   } else {
     const sum = a + b;
-    return `The sum of ${a} and ${b} is: ${sum}`;
+    return ` ${sum}`;
   }
 }
 
