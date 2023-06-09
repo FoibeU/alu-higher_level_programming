@@ -1,0 +1,1 @@
+This is the new assignment about how closures, scopes and object
