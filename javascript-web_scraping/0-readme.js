@@ -1,10 +1,9 @@
 #!/usr/bin/node
 const fs = require('fs');
-const file = process.argv.slide(2)[0];
-fs.readFile(file, 'utf8', (error, contents) =>{
-    if (err){
+fs.readFile(process.argv[2], 'utf-8', (error, contents) =>{
+    if (error){
         console.log(error);
     }else{
-        console.log(contents);
+        console.log(contents.toString());
     }
 })
