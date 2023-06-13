@@ -1,12 +1,12 @@
 #!/usr/bin/node
-const req = require('request');
+const requests = require('request');
 const fs = require('fs');
 const url = process.argv[2];
 const file = process.argv[3];
-req.get(url, async (err, res) => {
+requests.get(url, async (error, result) => {
   err
-    ? console.log(err)
-    : await fs.writeFile(file, res.body, (err) => {
-      if (err) console.log(err);
+    ? console.log(error)
+    : await fs.writeFile(file, result.body, (error) => {
+      if (error) console.log(error);
     });
 });
